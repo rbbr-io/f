@@ -14,9 +14,6 @@ module F
     keys = build_path(key, controller, params[:action])
     msg = I18n.t(keys.shift, scope: scope, default: keys, **values, errors: errors)
 
-    # NOTE color logging
-    Rails.logger.debug(Term::ANSIColor.green("flash: #{msg}"))
-
     type = options[:type] || key
     if options[:now]
       flash.now[type] = msg
