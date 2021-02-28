@@ -22,7 +22,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` ruby
+    #  application_controller.rb
+    include F
+```
+``` ruby
+    #  resources_controller.rb
+    def create
+    @resource = Resource.new(resource_params)
+    if @resource.save
+      f :success, redirect: resource_path(@resource)
+    else
+      f :error, render: :new
+    end
+  end
+```
 
 ## Development
 
